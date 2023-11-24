@@ -1,0 +1,11 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "gioco dell'impiccato",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "walter",
+  "license": "ISC"
+}

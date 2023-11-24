@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js"></script>
+    <title>L'impiccato</title>
+  </head>
+  <body>
+    <div class="first-container">
+      <img class="hangman" src="img/hangman-0.png" />
+      <div class="error-comments">
+        <div class="errors-container"></div>
+        <div class="comments"></div>
+      </div>
+    </div>
+
+    <div class="word-container">
+      <!--<div class="letter">__</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>
+      <div class="letter">A</div>-->
+    </div>
+
+    <form class="guess-container">
+      <div class="guess-letter-container">
+        <input
+          type="text"
+          class="guess-letter"
+          placeholder="C'è la lettera....?"
+        />
+        <button class="button-guess-letter">Prova!</button>
+      </div>
+      <div class="guess-word-container">
+        <input
+          type="text"
+          class="guess-word"
+          placeholder="Provo a dare la risposta!"
+        />
+        <button class="button-guess-word">Prova!</button>
+      </div>
+    </form>
+    <div class="bookmarks">
+      <p class="bookmarks-title hidden">Le tue parole preferite sono:</p>
+    </div>
+
+    <div class="overlay hidden"></div>
+    <div class="modal-window hidden">
+      <!--<p class="losing-text">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores
+        dolorum nemo quaerat nobis nam ab aspernatur excepturi ea, unde deleniti
+        distinctio dolor impedit consequuntur quas, laborum odit beatae aliquam
+        laboriosam.
+      </p>-->
+      <div class="losing-text"></div>
+      <button class="close-modal hidden">X</button>
+      <button class="button-bookmark">
+        Vuoi aggiungere la parola ai preferiti?
+      </button>
+      <button class="button-restart">Un'altra partita?</button>
+    </div>
+    <div class="winning-window modal-window hidden">
+      <div class="winning-text"></div>
+      <button class="button-bookmark">
+        Vuoi aggiungere la parola ai preferiti?
+      </button>
+      <button class="button-restart">Un'altra partita?</button>
+    </div>
+  </body>
+</html>
