@@ -17,9 +17,6 @@ const buttonsBookmark = document.querySelectorAll(".button-bookmark");
 const bookmarksTitle = document.querySelector(".bookmarks-title");
 const bookmarksContainer = document.querySelector(".bookmarks");
 
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
 let errors = 0;
 let word = "";
 let wordArray = [];
@@ -35,7 +32,7 @@ const renderBookmark = function (el) {
 };
 
 if (storage) {
-  console.log(storage);
+  //console.log(storage);
   bookmarksTitle.classList.remove("hidden");
   bookmarks.forEach((el) => renderBookmark(el));
 }
@@ -63,7 +60,7 @@ const checkGuess = function (letter) {
   guessLetter.value = "";
   comments.textContent = "";
   if (letter.length !== 1) {
-    console.log("ok");
+    //console.log("ok");
     comments.textContent =
       "Devi inserire SOLO UNA lettera. Sarò generoso, questa non te la conterò come errore...";
     return;
@@ -84,7 +81,7 @@ const checkGuess = function (letter) {
         document
           .querySelector(`.covered[data-number='${i}']`)
           .classList.add("hidden");
-        console.log(errors);
+        //console.log(errors);
 
         return;
       }
@@ -136,9 +133,9 @@ buttonWord.addEventListener("click", function (e) {
     guessWord.value = "";
     errors++;
     comments.textContent = "NNNNNNNNNO...";
-    hangman.setAttribute("src", `img/hangman-${errors}.png`);
+    hangman.setAttribute("src", `../img/hangman-${errors}.png`);
     if (errors === 6) {
-      console.log(losingText);
+      //console.log(losingText);
       losingText.insertAdjacentElement = losingQuotes[1];
       buttonLetter.classList.add("game-finished");
       buttonWord.classList.add("game-finished");
@@ -156,7 +153,7 @@ function restart() {
   errorsContainer.innerHTML = "";
   buttonLetter.classList.remove("game-finished");
   buttonWord.classList.remove("game-finished");
-  hangman.setAttribute("src", `img/hangman-${errors}.png`);
+  hangman.setAttribute("src", `../img/hangman-${errors}.png`);
   modalWindow.classList.add("hidden");
   winningWindow.classList.add("hidden");
   //overlay.classList.add("hidden");
@@ -177,7 +174,7 @@ buttonsBookmark.forEach((el) =>
     localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
     renderBookmark(word);
     restart();
-    console.log(bookmarks);
+    //console.log(bookmarks);
   })
 );
 
