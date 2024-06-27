@@ -17,8 +17,6 @@ const buttonsBookmark = document.querySelectorAll(".button-bookmark");
 const bookmarksTitle = document.querySelector(".bookmarks-title");
 const bookmarksContainer = document.querySelector(".bookmarks");
 
-//https://github.com/napolux/paroleitaliane/blob/master/paroleitaliane/1000_parole_italiane_comuni.txt
-
 let errors = 0;
 let word = "";
 let wordArray = [];
@@ -29,7 +27,7 @@ let nParole = 0;
 
 async function trovaParole() {
   const res = await fetch(
-    "https://gist.githubusercontent.com/walterpanacci/99cd0a675093021ef1500cfa284eb263/raw/abdc9a2840eeb4a1f2b9b81e3428a38229d17d21/gist.json"
+    "https://gist.githubusercontent.com/walterpanacci/99cd0a675093021ef1500cfa284eb263/raw/ad6438a37eeb4596b848aa79f5682f68d6adc12c/gist.json"
   );
   data = await res.json();
   listaParole = data.parole;
