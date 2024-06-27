@@ -33,7 +33,6 @@ async function trovaParole() {
   listaParole = data.parole;
   nParole = listaParole.length;
   renderWord();
-  console.log(data.parole, 1);
 }
 
 const renderBookmark = function (el) {
