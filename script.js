@@ -17,11 +17,26 @@ const buttonsBookmark = document.querySelectorAll(".button-bookmark");
 const bookmarksTitle = document.querySelector(".bookmarks-title");
 const bookmarksContainer = document.querySelector(".bookmarks");
 
+//https://github.com/napolux/paroleitaliane/blob/master/paroleitaliane/1000_parole_italiane_comuni.txt
+
 let errors = 0;
 let word = "";
 let wordArray = [];
 const storage = localStorage.getItem("bookmarks");
 let bookmarks = storage ? JSON.parse(storage) : [];
+let listaParole = trovaParole();
+let nParole = 0;
+
+async function trovaParole() {
+  const res = await fetch(
+    "https://gist.githubusercontent.com/walterpanacci/99cd0a675093021ef1500cfa284eb263/raw/abdc9a2840eeb4a1f2b9b81e3428a38229d17d21/gist.json"
+  );
+  data = await res.json();
+  listaParole = data.parole;
+  nParole = listaParole.length;
+  renderWord();
+  console.log(data.parole, 1);
+}
 
 const renderBookmark = function (el) {
   bookmarksContainer.insertAdjacentHTML(
@@ -37,15 +52,14 @@ if (storage) {
   bookmarks.forEach((el) => renderBookmark(el));
 }
 
-const getWord = async function () {
-  const res = await fetch("https://random-word-api.herokuapp.com/word?lang=it");
-  [word] = await res.json();
-  console.log(word);
-  return word;
+const getWord = function () {
+  const n = Math.floor(Math.random() * nParole);
+  console.log(listaParole[n]);
+  return listaParole[n];
 };
 
-const renderWord = async function () {
-  await getWord();
+const renderWord = function () {
+  word = getWord();
   wordContainer.innerHTML = "";
   wordArray = word.split("");
   wordArray.forEach((el, i) =>
@@ -142,8 +156,6 @@ buttonWord.addEventListener("click", function (e) {
     }
   }
 });
-
-renderWord();
 
 function restart() {
   errors = 0;
