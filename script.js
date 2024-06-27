@@ -82,7 +82,7 @@ const checkGuess = function (letter) {
       "afterbegin",
       `<div class="error">${letter}</div>`
     );
-    hangman.setAttribute("src", `img/hangman-${errors}.png`);
+    hangman.setAttribute("src", `img/hangman-${errors <= 6 ? errors : 6}.png`);
   } else
     wordArray.forEach((el, i) => {
       if (el === letter) {
@@ -144,7 +144,10 @@ buttonWord.addEventListener("click", function (e) {
     guessWord.value = "";
     errors++;
     comments.textContent = "NNNNNNNNNO...";
-    hangman.setAttribute("src", `../img/hangman-${errors}.png`);
+    hangman.setAttribute(
+      "src",
+      `../img/hangman-${errors <= 6 ? errors : 6}.png`
+    );
     if (errors === 6) {
       //console.log(losingText);
       losingText.insertAdjacentElement = losingQuotes[1];
@@ -162,7 +165,7 @@ function restart() {
   errorsContainer.innerHTML = "";
   buttonLetter.classList.remove("game-finished");
   buttonWord.classList.remove("game-finished");
-  hangman.setAttribute("src", `../img/hangman-${errors}.png`);
+  hangman.setAttribute("src", `./img/hangman-0.png`);
   modalWindow.classList.add("hidden");
   winningWindow.classList.add("hidden");
   //overlay.classList.add("hidden");
