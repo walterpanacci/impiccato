@@ -20,7 +20,7 @@ const bookmarksContainer = document.querySelector(".bookmarks");
 let errors = 0;
 let word = "";
 let wordArray = [];
-const storage = localStorage.getItem("bookmarks");
+const storage = localStorage.getItem("favs");
 let bookmarks = storage ? JSON.parse(storage) : [];
 let listaParole = trovaParole();
 let nParole = 0;
@@ -180,7 +180,7 @@ buttonsBookmark.forEach((el) =>
   el.addEventListener("click", function (e) {
     e.preventDefault();
     bookmarks.push(word);
-    localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+    localStorage.setItem("favs", JSON.stringify(bookmarks));
     renderBookmark(word);
     restart();
     //console.log(bookmarks);
