@@ -43,6 +43,17 @@ const renderBookmark = function (el) {
   );
 };
 
+bookmarksContainer.addEventListener("click", function () {
+  const remove = bookmarksContainer.querySelector(".remove-bookmark");
+  if (!remove) return;
+  else {
+    const wordToRemove = remove.closest("div").getAttribute("word");
+    console.log(wordToRemove);
+    bookmarks = bookmarks.filter((w) => w !== wordToRemove);
+    localStorage.setItem("favs", JSON.stringify(bookmarks));
+  }
+});
+
 if (storage) {
   //console.log(storage);
   bookmarksTitle.classList.remove("hidden");
@@ -70,7 +81,7 @@ const renderWord = function () {
 const checkGuess = function (letter) {
   guessLetter.value = "";
   comments.textContent = "";
-  if (letter.length !== 1) {
+  if (letter.length >= 1) {
     //console.log("ok");
     comments.textContent =
       "Devi inserire SOLO UNA lettera. Sarò generoso, questa non te la conterò come errore...";
@@ -121,7 +132,7 @@ buttonLetter.addEventListener("click", function (e) {
 
 buttonWord.addEventListener("click", function (e) {
   e.preventDefault();
-  const guess = guessWord.value;
+  const guess = guessWord.value.toLowerCase();
   if (guess.length === 0) {
     comments.textContent =
       "Devi inserire una parola prima di premere il pulsante...farò finta di niente...";
