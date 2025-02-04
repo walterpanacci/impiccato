@@ -81,7 +81,7 @@ const renderWord = function () {
 const checkGuess = function (letter) {
   guessLetter.value = "";
   comments.textContent = "";
-  if (letter.length >= 1) {
+  if (letter.length >= 2) {
     //console.log("ok");
     comments.textContent =
       "Devi inserire SOLO UNA lettera. Sarò generoso, questa non te la conterò come errore...";
